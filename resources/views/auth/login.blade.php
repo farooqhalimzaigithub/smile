@@ -51,7 +51,7 @@
 							  @csrf
 
 							<div class="form-group">
-								<input class="input" type="email" placeholder="Enter Email" " name="email">
+								<input class="input" type="email" placeholder="Enter Email"  name="email">
 							</div>
 
 							<div class="form-group">

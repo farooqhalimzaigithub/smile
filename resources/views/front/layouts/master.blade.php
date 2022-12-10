@@ -114,40 +114,37 @@
 					@endif
 
 					<!-- <li class="has-dropdown"><a href="#">account</a> -->
-						 <ul class="navbar-nav ms-auto">
-                <!-- Authentication Links -->
-                @guest
-                    @if (Route::has('login'))
-                        <li class="nav-item">
-                            <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
-                        </li>
-                    @endif 
-
-                    @if (Route::has('register'))
-                        <li class="nav-item">
-                            <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
-                        </li>
-                    @endif
-                @else
-                    <li class="nav-item dropdown1">
-                        <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown1" aria-haspopup="true" aria-expanded="false" v-pre>
-                            {{ Auth::user()->name }}
-                        </a>
-
-                        <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item" href="{{ route('logout') }}"
-                               onclick="event.preventDefault();
-                                             document.getElementById('logout-form').submit();">
-                                {{ __('Logout') }}
-                            </a>
-
-                            <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-                                @csrf
-                            </form>
-                        </div>
-                    </li>
-                @endguest
-            </ul>
+						{{-- <ul class="navbar-nav ml-auto"> --}}
+							<!-- Authentication Links -->
+							@guest
+								<li class="nav-item">
+									<a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
+								</li>
+								@if (Route::has('register'))
+									<li class="nav-item">
+										<a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
+									</li>
+								@endif
+							@else
+								<li class="nav-item dropdown1">
+									<a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+										{{ Auth::user()->name }} <span class="caret"></span>
+									</a>
+			
+									<div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+										<a class="dropdown-item" href="{{ route('logout') }}"
+											onclick="event.preventDefault();
+														  document.getElementById('logout-form').submit();">
+											{{ __('Logout') }}
+										</a>
+			
+										<form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+											@csrf
+										</form>
+									</div>
+								</li>
+							@endguest
+						{{-- </ul> --}}
 					<!-- </li> -->
 					<li><a href="contact">Contact Us</a></li>
 					
@@ -188,14 +185,13 @@
 				<!-- footer galery -->
 				<div class="col-md-4">
 					<div class="footer">
-						<h3 class="footer-title">Galery</h3>
+						<h3 class="footer-title">Gallery</h3>
 						<ul class="footer-galery">
-							<li><a href="#"><img src="{{asset('front-assets/img/galery-1.jpg')}}" alt=""></a></li>
-							<li><a href="#"><img src="{{asset('front-assets/img/galery-2.jpg')}}" alt=""></a></li>
-							<li><a href="#"><img src="{{asset('front-assets/img/galery-3.jpg')}}" alt=""></a></li>
-							<li><a href="#"><img src="{{asset('front-assets/img/galery-4.jpg')}}" alt=""></a></li>
-							<li><a href="#"><img src="{{asset('front-assets/img/galery-5.jpg')}}" alt=""></a></li>
-							<li><a href="#"><img src="{{asset('front-assets/img/galery-6.jpg')}}" alt=""></a></li>
+							{{-- @foreach ($gallery as $galleries)
+								
+							<li><a href="#"><img src="{{ asset('/public/images/'.$galleries->image) }}" alt=""></a></li>
+							@endforeach --}}
+
 						</ul>
 					</div>
 				</div>

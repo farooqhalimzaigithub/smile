@@ -365,13 +365,13 @@
             >
             <ul aria-expanded="false" class="collapse first-level">
                 <li class="sidebar-item">
-                    <a href="{{route('users.index')}}" class="sidebar-link"
+                    <a href="{{route('gelleries.index')}}" class="sidebar-link"
                       ><i class="mdi mdi-note-outline"></i
                       ><span class="hide-menu">List  </span></a
                     >
                   </li>
                   <li class="sidebar-item">
-                    <a href="{{route('users.create')}}" class="sidebar-link"
+                    <a href="{{route('gelleries.create')}}" class="sidebar-link"
                       ><i class="mdi mdi-note-outline"></i
                       ><span class="hide-menu">Add </span></a
                     >

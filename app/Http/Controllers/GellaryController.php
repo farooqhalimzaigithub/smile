@@ -14,7 +14,8 @@ class GellaryController extends Controller
      */
     public function index()
     {
-        //
+        $gellary=Gellary::all();
+        return view('back.gallery.index',compact('gellary'));
     }
 
     /**
@@ -24,7 +25,8 @@ class GellaryController extends Controller
      */
     public function create()
     {
-        //
+        return view('back.gallery.create');
+        
     }
 
     /**
@@ -35,7 +37,27 @@ class GellaryController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $promotion= new Gellary();
+        $this->validate_mage($request);
+
+      if($request->file('image')){
+          $file= $request->file('image');
+          $filename= date('YmdHi').$file->getClientOriginalName();
+           $destinationPath = 'public/images/'; //for local link will be
+          $datetime = str_replace([' ', ':'], '-', date('mdYhisa', time()));
+           $file->move($destinationPath, $filename);
+          // $file-> move(public_path('public/images/homeslider'), $filename);
+          // $data['image']= $filename;
+           $title=$request->title;
+           $description=$request->description;
+      }
+      if(Gellary::create([
+       'image' => $filename ,
+
+   ]))
+           return back()->withSuccess('Record saved successfully!');
+       else
+          return back()->withError('Record does not saved!'); 
     }
 
     /**
@@ -80,6 +102,16 @@ class GellaryController extends Controller
      */
     public function destroy(Gellary $gellary)
     {
-        //
+        $gellary->delete();
+// dd($gellary);
+        return redirect()->route('gelleries.index')
+             ->withSuccess(__('Record delete successfully.'));
+    }
+
+    public function validate_mage(Request $request)
+    {
+        $this->validate($request,[
+            'image' => 'required|mimes:jpeg,bmp,png,jpg|max:10000',
+        ]);
     }
 }

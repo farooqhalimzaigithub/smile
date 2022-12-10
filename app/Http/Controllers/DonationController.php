@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Donation;
+use App\Gellary;
+
 use Illuminate\Http\Request;
 use Auth;
 
@@ -26,7 +28,9 @@ class DonationController extends Controller
      */
     public function create()
     {
-         return view('front.pages.donation');
+        $gallery=Gellary::all();
+        
+         return view('front.pages.donation',compact('gallery'));
     }
 
     /**
@@ -96,6 +100,9 @@ class DonationController extends Controller
      */
     public function destroy(Donation $donation)
     {
-        //
+        $donation->delete();
+
+        return redirect()->route('donations.index')
+             ->withSuccess(__('Record delete successfully.'));
     }
 }

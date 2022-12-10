@@ -3,12 +3,16 @@
 @section("title","Home")
 
 @section("content")
+
+@foreach ($slider as $sliders)
+	
 	<!-- HOME OWL -->
 	<div id="home-owl" class="owl-carousel owl-theme">
 		<!-- home item -->
 		<div class="home-item">
 			<!-- section background -->
-			<div class="section-bg" style="background-image: url('front-assets/img/sliders.jpeg');">
+			<div class="section-bg" style="background-image: url('{{ asset('/public/images/'.$sliders->image) }}');">
+
 			</div>
 			<!-- /section background -->
 
@@ -34,7 +38,10 @@
 		<!-- home item -->
 		<div class="home-item">
 			<!-- Background Image -->
-			<div class="section-bg" style="background-image: url('front-assets/img/sliders.jpeg');">
+			<div class="section-bg" style="background-image: url('{{ asset('/public/images/'.$sliders->image) }}');">
+				
+				
+				
 			</div>
 			<!-- /Background Image -->
 
@@ -44,9 +51,9 @@
 					<div class="row">
 						<div class="col-md-8">
 							<div class="home-content">
-								<h1>Become A Donor</h1>
+								<h1>{{ $sliders->description }}</h1>
 								<!-- <p class="lead">Smile Charity is always looking for the talented people with various skills and backgrounds. If you want to create a real difference in the lives of underprivileged people of Pakistan, we welcome you among our team. Our objective is to offer rewarding volunteer programs to those who have time and commitment to support our community. Smile Charity is committed to providing meaningful volunteer experience to the individuals with skills and education to support our noble cause.</p> -->
-								<a href="donate" class="primary-button">Join Us Now!</a>
+								<a href="donate" class="primary-button">{{ $sliders->title }}</a>
 							</div>
 						</div>
 					</div>
@@ -57,6 +64,10 @@
 		<!-- /home item -->
 	</div>
 	<!-- /HOME OWL -->
+
+
+@endforeach
+
 
 	<!-- ABOUT -->
 	<div id="about" class="section">

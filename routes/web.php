@@ -3,6 +3,9 @@
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\front\FrontController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\SliderController;
+
+
 
 /*
 |--------------------------------------------------------------------------
@@ -39,8 +42,12 @@ Route::resource('donations', 'DonationController');
 Route::resource('users', 'UserController');
 Route::resource('events', 'EventController');
 Route::resource('plans', 'PlanController');
-Route::resource('sliders', 'SlideController');
-Route::resource('galleries', 'SlideController');
+Route::resource('sliders', 'SliderController');
+Route::resource('gelleries', 'GellaryController');
+
+
+
+
 // ==============================resource routes=============================
 
 // Route::get('login', 'UserController@customlogin');
@@ -100,9 +107,12 @@ Route::get('readmore', 'htmlcontroller@readmorepage');
 Route::get('admin',[AdminController::class,'home']);
 
 
+
 /*Route::get('volunteer', 'htmlcontroller@volunteerpage');*/
 
 
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+

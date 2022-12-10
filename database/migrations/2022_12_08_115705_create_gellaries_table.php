@@ -14,7 +14,10 @@ class CreateGellariesTable extends Migration
     public function up()
     {
         Schema::create('gellaries', function (Blueprint $table) {
-            $table->id();
+            $table->increments('id');
+
+            $table->string('image');
+
             $table->timestamps();
         });
     }

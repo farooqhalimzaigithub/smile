@@ -104,7 +104,10 @@ class PlanController extends Controller
      */
     public function destroy(Plan $plan)
     {
-        //
+        $plan->delete();
+
+        return redirect()->route('plans.index')
+             ->withSuccess(__('Record delete successfully.'));
     }
 
     public function validate_mage(Request $request)
