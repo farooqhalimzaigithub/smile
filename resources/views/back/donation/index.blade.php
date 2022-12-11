@@ -1,6 +1,15 @@
 @extends('back.layouts.master')
 @section('content')
       <!-- ============================================================== -->
+
+      <div class="container mb-2">
+        <div class="row">
+          <div class="col-md-12">
+           <a style="border-radius: 25px 25px;" href="{{route('donations.create')}}" class="btn btn-primary">Create</a>
+          </div>
+        </div>
+      </div>
+
 <div class="row">
             <div class="col-12">
               <div class="card">
@@ -41,11 +50,15 @@
 
                           <td>
                           
-                            <a href="" class=""><i class="fas fa-edit"></i></a>
+                            {{-- <a href="" class=""><i class="fas fa-edit"></i></a> --}}
                               
                             
       
-                            <a href="" class="ml-2"><i class="fa fa-trash" aria-hidden="true"></i></a>
+                            <form method="post" action="{{route('donations.destroy',$donation->id)}}">
+                              @method('delete')
+                              @csrf
+                             <button style="border: none" type="submit" class=""><i class="fa fa-trash" aria-hidden="true"></i></button> 
+                          </form>
                            
       
                         </td>

@@ -4,14 +4,13 @@
 
 @section("content")
 
-@foreach ($slider as $sliders)
 	
 	<!-- HOME OWL -->
 	<div id="home-owl" class="owl-carousel owl-theme">
 		<!-- home item -->
 		<div class="home-item">
 			<!-- section background -->
-			<div class="section-bg" style="background-image: url('{{ asset('/public/images/'.$sliders->image) }}');">
+			<div class="section-bg" >
 
 			</div>
 			<!-- /section background -->
@@ -34,6 +33,7 @@
 			<!-- /home content -->
 		</div>
 		<!-- /home item -->
+		@foreach ($slider as $sliders)
 
 		<!-- home item -->
 		<div class="home-item">
@@ -172,11 +172,13 @@
 				<!-- section title -->
 
 				<!-- causes -->
+				@foreach ($plan as $plans )
+					
 				<div class="col-md-4">
 					<div class="causes">
 						<div class="causes-img">
 							<a href="educationdetail">
-									<img src="{{asset('front-assets/img/water.jpeg')}}" alt=""  width="300" height="200">
+									<img src="{{ asset('/public/images/'.$plans->image) }}" alt=""  width="300" height="200">
 								</a>
 						</div>
 						<div class="causes-progress">
@@ -191,22 +193,25 @@
 							</div>
 						</div>
 						<div class="causes-content">
-							<h3><a href="educationdetail">Water</a></h3>
-							<p>we provide water  looks of things</p>
+							<h3><a href="educationdetail">{{ $plans->title }}</a></h3>
+							<p>{{ $plans->description }}</p>
 							<a href="{{route('donations.create')}}" class="primary-button causes-donate">Donate Now</a>
 						</div>
 					</div>
 				</div>
+				@endforeach
+
 				<!-- /causes -->
 
 				<!-- causes -->
-				<div class="col-md-4">
+				{{-- <div class="col-md-4">
 					<div class="causes">
 						<div class="causes-img">
 							<a href="educationdetail">
 									<img src="{{asset('front-assets/img/dasterkhwan.jpeg')}}" alt="" width="300" height="200">
 								</a>
 						</div>
+
 						<div class="causes-progress">
 							<div class="causes-progress-bar">
 								<!-- <div style="width: 53%;">
@@ -252,7 +257,7 @@
 							<a href="{{route('donations.create')}}" class="primary-button causes-donate">Donate Now</a>
 						</div>
 					</div>
-				</div>
+				</div> --}}
 				<!-- /causes -->
 
 				<!-- <div class="col-md-12"> -->

@@ -103,8 +103,8 @@
 					</li>
 					<li class="has-dropdown"><a href="#">Events</a>
 						<ul class="dropdown">
-							<!-- <li><a href="upcomingevent">Upcoming Events</a></li> -->
-							<!-- <li><a href="completedevent">Completed Events</a></li> -->
+							<li><a href="upcomingevent">Upcoming Events</a></li>
+							<li><a href="completedevent">Completed Events</a></li>
 						</ul>
 					</li>
 					@if(Auth::check())

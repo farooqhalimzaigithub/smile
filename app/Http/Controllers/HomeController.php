@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Slider;
 use App\Gellary;
-
+use App\Plan;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -28,7 +28,8 @@ class HomeController extends Controller
     {
         $slider=Slider::all();
         $gallery=Gellary::all();
-        return view('front.layouts.app',compact('slider','gallery'));
+        $plan=Plan::all();
+        return view('front.layouts.app',compact('slider','gallery','plan'));
     }
 
     // public function slider()

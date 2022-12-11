@@ -62,6 +62,7 @@ class EventController extends Controller
        'goal_price' => $goal_price ,
 
    ]))
+   
            return back()->withSuccess('Record saved successfully!');
        else
           return back()->withError('Record does not saved!'); 

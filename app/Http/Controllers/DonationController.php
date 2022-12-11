@@ -43,16 +43,40 @@ class DonationController extends Controller
     {
         // dd($request->all());
         if(Auth::check()){
-        $donations=new Donation();
-        $donations->name=$request->name;
-        $donations->user_id=Auth::user()->id;
-        $donations->email=$request->email;
-        $donations->amount=$request->amount;
-        $donations->plan=$request->plan;
-        $donations->payment_type=$request->payment_type;
-        $donations->save();
+            $promotion= new Donation();
+            $this->validate_mage($request);
+    
+          if($request->file('image')){
+              $file= $request->file('image');
+              $filename= date('YmdHi').$file->getClientOriginalName();
+               $destinationPath = 'public/images/'; //for local link will be
+              $datetime = str_replace([' ', ':'], '-', date('mdYhisa', time()));
+               $file->move($destinationPath, $filename);
+              // $file-> move(public_path('public/images/homeslider'), $filename);
+              // $data['image']= $filename;
+               $name=$request->name;
+               $email=$request->email;
+               $amount=$request->amount;
+               $user_id=Auth::user()->id;
+
+
+          }
+          if(Donation::create([
+           'image' => $filename ,
+           'name' => $name ,
+           'email' => $email ,
+           'amount' => $amount ,
+           'user_id'=>$user_id,
+
+    
+       ]))
+        // $donations->plan=$request->plan;
+        // $donations->payment_type=$request->payment_type;
+        // dd($donations);
+        // $donations->save();
         return redirect()->back()->with('status','Successfully Submitted');
-        }else{
+        }
+        else{
              return redirect()->back()->with('status','Please  login First !');
         }
         
@@ -104,5 +128,12 @@ class DonationController extends Controller
 
         return redirect()->route('donations.index')
              ->withSuccess(__('Record delete successfully.'));
+    }
+
+    public function validate_mage(Request $request)
+    {
+        $this->validate($request,[
+            'image' => 'required|mimes:jpeg,bmp,png,jpg|max:10000',
+        ]);
     }
 }

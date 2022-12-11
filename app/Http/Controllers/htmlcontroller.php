@@ -6,7 +6,7 @@ use App\Donations as AppDonations;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Redis;
 use App\Donations;
-
+use App\Event;
 
 class htmlcontroller extends Controller
 {
@@ -23,57 +23,60 @@ class htmlcontroller extends Controller
 
     public function aboutpage()
     {
-        return view('user-panel.partials.about');
+        return view('front.pages.about');
     }
 
      public function educationpage()
     {
-        return view('user-panel.partials.education');
+        return view('front.pages.education');
     }
 
      public function educationdetailpage()
     {
-        return view('user-panel.partials.educationdetail');
+        return view('front.pages.educationdetail');
     }
 
       public function medicalpage()
     {
-        return view('user-panel.partials.medical');
+        return view('front.pages.medical');
     }
 
      public function medicaldetailpage()
     {
-        return view('user-panel.partials.medicaldetail');
+        return view('front.pages.medicaldetail');
     }
 
      public function povertypage()
     {
-        return view('user-panel.partials.poverty');
+        return view('front.pages.poverty');
     }
 
      public function povertydetailpage()
     {
-        return view('user-panel.partials.povertydetail');
+        return view('front.pages.povertydetail');
     }
 
      public function upcomingeventpage()
     {
-        return view('user-panel.partials.upcomingevent');
+        $event=Event::all();
+        return view('front.pages.upcomingevent',compact('event'));
     }
 
     public function upcomingeventdetailpage()
     {
-        return view('user-panel.partials.upcomingeventdetail');
+        return view('front.pages.upcomingeventdetail');
     }
 
        public function completedeventpage()
     {
-        return view('user-panel.partials.completedevent');
+        $event=Event::all();
+
+        return view('front.pages.completedevent',compact('event'));
     }
 
     public function completedeventdetailpage()
     {
-        return view('user-panel.partials.completedeventdetail');
+        return view('front.pages.completedeventdetail');
     }
 
      public function blogpage()
@@ -108,7 +111,7 @@ class htmlcontroller extends Controller
 
      public function contactpage()
     {
-        return view('user-panel.partials.contact');
+        return view('front.pages.contact');
     }
 
      public function termpage()

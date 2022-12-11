@@ -1,6 +1,14 @@
 @extends('back.layouts.master')
 @section('content')
       <!-- ============================================================== -->
+
+      <div class="container mb-2">
+        <div class="row">
+          <div class="col-md-12">
+           <a style="border-radius: 25px 25px;" href="{{route('events.create')}}" class="btn btn-primary">Create</a>
+          </div>
+        </div>
+      </div>
 <div class="row">
             <div class="col-12">
               <div class="card">
@@ -12,9 +20,9 @@
                       <tr>
                         <th scope="col">S.No</th>
                         <th scope="col">Title</th>
-                        <th scope="col">Description</th>
+                        <th scope="col">image</th>
                         <!-- <th scope="col">Amounts</th> -->
-                        <th scope="col">Image</th>
+                        <th scope="col">Description</th>
                         <th scope="col">Raise Price</th>
                         <th scope="col">Goal Price</th>
                         <th scope="col">Action</th>
