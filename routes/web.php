@@ -54,22 +54,21 @@ Route::resource('gelleries', 'GellaryController');
 
 
 Route::get('about', 'htmlcontroller@aboutpage');
-
-
-
-
-
-
-
 Route::get('education', 'htmlcontroller@educationpage');
+Route::get('medical', 'htmlcontroller@medicalpage');
+Route::get('poverty', 'htmlcontroller@povertypage');
+
+
+
+
+
 
 Route::get('educationdetail', 'htmlcontroller@educationdetailpage');
 
-Route::get('medical', 'htmlcontroller@medicalpage');
+
 
 Route::get('medicaldetail', 'htmlcontroller@medicaldetailpage');
 
-Route::get('poverty', 'htmlcontroller@povertypage');
 
 Route::get('povertydetail', 'htmlcontroller@povertydetailpage');
 

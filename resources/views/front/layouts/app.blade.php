@@ -173,7 +173,7 @@
 
 				<!-- causes -->
 
-				@foreach ($plan as $plans )
+				@foreach ($plans as $plan )
 					
 
 				<div class="col-md-4">
@@ -181,7 +181,7 @@
 						<div class="causes-img">
 							<a href="educationdetail">
 
-									<img src="{{ asset('/public/images/'.$plans->image) }}" alt=""  width="300" height="200">
+									<img src="{{ asset('/public/images/'.$plan->image) }}" alt=""  width="300" height="200">
 								</a>
 						</div>
 						<div class="causes-progress">
@@ -197,7 +197,7 @@
 						</div>
 						<div class="causes-content">
 
-							<h3><a href="educationdetail">{{ $plans->title }}</a></h3>
+							<h3><a href="educationdetail">{{ $plan->title }}</a></h3>
 							<p></p>
 
 							<a href="{{route('donations.create')}}" class="primary-button causes-donate">Donate Now</a>

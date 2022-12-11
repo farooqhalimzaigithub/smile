@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Redis;
 use App\Donations;
 use App\Event;
+use App\Gellary;
 
 class htmlcontroller extends Controller
 {
@@ -23,12 +24,16 @@ class htmlcontroller extends Controller
 
     public function aboutpage()
     {
-        return view('front.pages.about');
+        
+        $data['gallery']=Gellary::latest()->take(6)->get();
+        return view('front.pages.about',$data);
     }
 
      public function educationpage()
     {
-        return view('front.pages.education');
+        
+ $data['gallery']=Gellary::latest()->take(6)->get();
+        return view('front.pages.education',$data);
     }
 
      public function educationdetailpage()
@@ -38,7 +43,8 @@ class htmlcontroller extends Controller
 
       public function medicalpage()
     {
-        return view('front.pages.medical');
+         $data['gallery']=Gellary::latest()->take(6)->get();
+        return view('front.pages.medical',$data);
     }
 
      public function medicaldetailpage()
@@ -48,7 +54,8 @@ class htmlcontroller extends Controller
 
      public function povertypage()
     {
-        return view('front.pages.poverty');
+        $data['gallery']=Gellary::latest()->take(6)->get();
+        return view('front.pages.poverty',$data);
     }
 
      public function povertydetailpage()
@@ -58,8 +65,10 @@ class htmlcontroller extends Controller
 
      public function upcomingeventpage()
     {
-        $event=Event::all();
-        return view('front.pages.upcomingevent',compact('event'));
+        $data['event']=Event::all();
+        // dd( $data['event']);
+         $data['gallery']=Gellary::latest()->take(6)->get();
+        return view('front.pages.upcomingevent',$data);
     }
 
     public function upcomingeventdetailpage()
@@ -69,9 +78,10 @@ class htmlcontroller extends Controller
 
        public function completedeventpage()
     {
-        $event=Event::all();
+         $data['event']=Event::all();
+         $data['gallery']=Gellary::latest()->take(6)->get();
 
-        return view('front.pages.completedevent',compact('event'));
+        return view('front.pages.completedevent',$data);
     }
 
     public function completedeventdetailpage()
@@ -111,7 +121,8 @@ class htmlcontroller extends Controller
 
      public function contactpage()
     {
-        return view('front.pages.contact');
+          $data['gallery']=Gellary::latest()->take(6)->get();
+        return view('front.pages.contact',$data);
     }
 
      public function termpage()

@@ -5,34 +5,7 @@
 @Section("content")
 	<!-- Page Header -->
 	
-	<div id="page-header">
-		<!-- section background -->
-		<div class="section-bg" style="background-image: url('{{ asset('assets/img/slide.jpeg')}}');"></div>
-		<!-- /section background -->
-
-		<!-- page header content -->
-		<div class="container">
-			<div class="row">
-				<div class="col-md-12">
-					<div class="header-content">
-						<div class="col-md-8"> 
-							<h1>Donate Now</h1>
-								<ul class="breadcrumb">
-									<li><a href="home">Home</a></li>
-									<li><a href="#">Donate Now</a></li>
-								</ul>
-						</div>
-					</div>
-
-					<div class="navbar-right" style="padding-top:30px;">
-						<a href="donate" class="primary-button causes-donate" navbar-left>Donate Now  <i class="fa fa-arrow-right"></i></a>
-					</div> 
-				</div>
-			</div>
-		</div>
-		<!-- /page header content -->
-	</div>
-	<!-- /Page Header -->
+	@include("front.layouts.static_slide");
 
 	@if (session('status'))
 	<div class="alert alert-success alert-dismissable custom-success-box" style="margin: 15px;">
@@ -51,7 +24,7 @@
 				<!-- about video -->
 				<div class="col-md-offset-1 col-md-4" style="margin-bottom: 100px;">
 					<a href="#" class="about-video">
-							<img src="{{asset('assets/img/a1.jpg')}}" alt="">
+							<img src="{{asset('front-assets/img/a1.jpg')}}" alt="">
 						</a>
 				</div>
 				<!-- /about video -->

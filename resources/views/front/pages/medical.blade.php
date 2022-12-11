@@ -1,36 +1,10 @@
 @extends("front.layouts.master")
 
-@section("title","Medical_Page")
+@section("title","Hospital")
 
 @section("content")
 	<!-- Page Header -->
-	<div id="page-header">
-		<!-- section background -->
-		<div class="section-bg" style="background-image: url(./img/background-2.jpg);"></div>
-		<!-- /section background -->
-
-		<!-- page header content -->
-		<div class="container">
-			<div class="row">
-				<div class="col-md-12">
-					<div class="header-content">
-						<div class="col-md-8">
-							<h1>Medical</h1>
-							<ul class="breadcrumb">
-								<li><a href="home">Home</a></li>
-								<li><a href="#">Medical</a></li>
-							</ul>
-						</div>
-					</div>
-
-					<div class="navbar-right" style="padding-top:30px;">
-						<a href="donate" class="primary-button causes-donate" navbar-left>Donate Now  <i class="fa fa-arrow-right"></i></a>
-					</div>
-				</div>
-			</div>
-		</div>
-		<!-- /page header content -->
-	</div>
+	@include("front.layouts.static_slide");
 	<!-- /Page Header -->
 
 	<!-- ABOUT -->

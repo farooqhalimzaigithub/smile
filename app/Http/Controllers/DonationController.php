@@ -29,7 +29,6 @@ class DonationController extends Controller
     public function create()
     {
         $gallery=Gellary::all();
-        
          return view('front.pages.donation',compact('gallery'));
     }
 

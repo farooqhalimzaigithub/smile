@@ -17,7 +17,7 @@ class FrontController extends Controller
 
         $data['slider']=Slider::all();
         $data['plans']=Plan::all();
-        // dd($slider);
+         // dd($data['plans']);
         $data['gallery']=Gellary::latest()->take(6)->get();
         // dd($data['gallery']);
         return view('front.layouts.app',$data);

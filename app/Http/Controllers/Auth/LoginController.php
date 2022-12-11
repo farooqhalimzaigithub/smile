@@ -31,10 +31,11 @@ class LoginController extends Controller
     public function redirectTo() {
   $user = Auth::check(); 
 
-  if(!$user){
-
+  if(!Auth::check()){
+dd('return login');
       return '/login';
   } 
+  dd('return home');
       return '/home'; 
   
 }
