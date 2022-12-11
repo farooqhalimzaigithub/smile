@@ -9,10 +9,12 @@ use App\Slider;
 use App\Plan;
 
 
+
 class FrontController extends Controller
 {
     public function app()
     {
+
         $data['slider']=Slider::all();
         $data['plans']=Plan::all();
         // dd($slider);

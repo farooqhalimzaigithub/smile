@@ -58,7 +58,7 @@
 
 				<!-- about content -->
 				<div class="col-md-7" style="margin-top: -30px">
-					<form action="{{ route('donations.store') }}" method="post" class="footer-newsletter">
+					<form action="{{ route('donations.store') }}" method="post" class="footer-newsletter" enctype="multipart/form-data">
 						@csrf
 						<div class="section-title">
 							<h3 class="abc9">Personal Information</h3>
@@ -82,8 +82,12 @@
 							<input class="input" placeholder="Enter Your Amount*" type="number" name="amount" required="">
 						</div>
 
+						<div class="form-group">
+							<input type="file" class="input"   name="image" required="">
+						</div>
+
 						
-						<label class="abc9">Plans</label>
+						{{-- <label class="abc9">Plans</label>
 						<br><br>
 						<div class="col-md-3">
 							<div class="form-group">Hospital
@@ -110,7 +114,7 @@
 								<option value="JazzCash">JazzCash</option>
 								<option value="Bank">Bank</option>
 							</select>
-						</div>
+						</div> --}}
 
 						<div class="col-md-3">
 							<div class="form-group">

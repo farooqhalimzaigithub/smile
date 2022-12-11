@@ -3,7 +3,7 @@
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\front\FrontController;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\SliderController;
+
 
 
 
@@ -55,11 +55,17 @@ Route::resource('gelleries', 'GellaryController');
 
 Route::get('about', 'htmlcontroller@aboutpage');
 
+
+
+
+
+
+
 Route::get('education', 'htmlcontroller@educationpage');
 
 Route::get('educationdetail', 'htmlcontroller@educationdetailpage');
 
-Route::get('donatemedical', 'htmlcontroller@medicalpage');
+Route::get('medical', 'htmlcontroller@medicalpage');
 
 Route::get('medicaldetail', 'htmlcontroller@medicaldetailpage');
 

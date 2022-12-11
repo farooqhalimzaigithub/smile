@@ -4,14 +4,13 @@
 
 @section("content")
 
-@foreach ($slider as $sliders)
 	
 	<!-- HOME OWL -->
 	<div id="home-owl" class="owl-carousel owl-theme">
 		<!-- home item -->
 		<div class="home-item">
 			<!-- section background -->
-			<div class="section-bg" style="background-image: url('{{ asset('/public/images/'.$sliders->image) }}');">
+			<div class="section-bg" >
 
 			</div>
 			<!-- /section background -->
@@ -34,6 +33,7 @@
 			<!-- /home content -->
 		</div>
 		<!-- /home item -->
+		@foreach ($slider as $sliders)
 
 		<!-- home item -->
 		<div class="home-item">
@@ -172,12 +172,16 @@
 				<!-- section title -->
 
 				<!-- causes -->
-				@foreach($plans as $plan)
+
+				@foreach ($plan as $plans )
+					
+
 				<div class="col-md-4">
 					<div class="causes">
 						<div class="causes-img">
 							<a href="educationdetail">
-									<img src="{{ asset('/public/images/'.$plan->image) }}" alt=""  width="300" height="200">
+
+									<img src="{{ asset('/public/images/'.$plans->image) }}" alt=""  width="300" height="200">
 								</a>
 						</div>
 						<div class="causes-progress">
@@ -192,70 +196,22 @@
 							</div>
 						</div>
 						<div class="causes-content">
-							<h3><a href="educationdetail">{{$plan->title}}</a></h3>
-							<p>{{$plan->description}}</p>
+
+							<h3><a href="educationdetail">{{ $plans->title }}</a></h3>
+							<p></p>
+
 							<a href="{{route('donations.create')}}" class="primary-button causes-donate">Donate Now</a>
 						</div>
 					</div>
 				</div>
 				@endforeach
-				<!-- /causes -->
 
-				<!-- causes -->
-				<!-- <div class="col-md-4">
-					<div class="causes">
-						<div class="causes-img">
-							<a href="educationdetail">
-									<img src="{{asset('front-assets/img/dasterkhwan.jpeg')}}" alt="" width="300" height="200">
-								</a>
-						</div>
-						<div class="causes-progress">
-							<div class="causes-progress-bar">
-								<div style="width: 53%;">
-									<span>53%</span>
-								</div>
-							</div>
-							<div>
-								<span class="causes-raised">Raised: <strong>52.000$</strong></span>
-								<span class="causes-goal">Goal: <strong>90.000$</strong></span>
-							</div>
-						</div>
-						<div class="causes-content">
-							<h3><a href="educationdetail">Daster khwan </a></h3>
-							<p>provides to hungry people</p>
-							<a href="{{route('donations.create')}}" class="primary-button causes-donate">Donate Now</a>
-						</div>
-					</div>
-				</div> -->
-				<!-- /causes -->
+				
 
-				<!-- causes -->
-				<!-- <div class="col-md-4">
-					<div class="causes">
-						<div class="causes-img">
-							<a href="educationdetail">
-								<img src="{{asset('front-assets/img/hospital.jpeg')}}" alt="" width="300" height="200">
-							</a>
-						</div>
-						<div class="causes-progress">
-							<div class="causes-progress-bar">
-								<div style="width: 72%;">
-									<span>72%</span>
-								</div>
-							</div>
-							<div>
-								<span class="causes-raised">Raised: <strong>52.000$</strong></span>
-								<span class="causes-goal">Goal: <strong>90.000$</strong></span>
-							</div>
-						</div>
-						<div class="causes-content">
-							<h3><a href="educationdetail">Hospital </a></h3>
-							<p>Save the humanity</p>
-							<a href="{{route('donations.create')}}" class="primary-button causes-donate">Donate Now</a>
-						</div>
-					</div>
-				</div> -->
-				<!-- /causes -->
+			
+
+
+				
 
 				<!-- <div class="col-md-12"> -->
 					<!-- number -->

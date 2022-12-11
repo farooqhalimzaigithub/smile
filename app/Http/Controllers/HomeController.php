@@ -28,11 +28,13 @@ class HomeController extends Controller
     public function index()
     {
 
+
         $data['slider']=Slider::all();
         $data['plans']=Plan::all();
         // dd($slider);
          $data['gallery']=Gellary::latest()->take(6)->get();
         return view('front.layouts.app',$data);
+
     }
 
     // public function slider()
