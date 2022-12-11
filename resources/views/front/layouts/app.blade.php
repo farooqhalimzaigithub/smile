@@ -51,9 +51,9 @@
 					<div class="row">
 						<div class="col-md-8">
 							<div class="home-content">
-								<h1>{{ $sliders->description }}</h1>
+								<h1></h1>
 								<!-- <p class="lead">Smile Charity is always looking for the talented people with various skills and backgrounds. If you want to create a real difference in the lives of underprivileged people of Pakistan, we welcome you among our team. Our objective is to offer rewarding volunteer programs to those who have time and commitment to support our community. Smile Charity is committed to providing meaningful volunteer experience to the individuals with skills and education to support our noble cause.</p> -->
-								<a href="donate" class="primary-button">{{ $sliders->title }}</a>
+								<a href="{{route('donations.create')}}" class="primary-button">Donate Now!</a>
 							</div>
 						</div>
 					</div>
@@ -172,11 +172,12 @@
 				<!-- section title -->
 
 				<!-- causes -->
+				@foreach($plans as $plan)
 				<div class="col-md-4">
 					<div class="causes">
 						<div class="causes-img">
 							<a href="educationdetail">
-									<img src="{{asset('front-assets/img/water.jpeg')}}" alt=""  width="300" height="200">
+									<img src="{{ asset('/public/images/'.$plan->image) }}" alt=""  width="300" height="200">
 								</a>
 						</div>
 						<div class="causes-progress">
@@ -191,16 +192,17 @@
 							</div>
 						</div>
 						<div class="causes-content">
-							<h3><a href="educationdetail">Water</a></h3>
-							<p>we provide water  looks of things</p>
+							<h3><a href="educationdetail">{{$plan->title}}</a></h3>
+							<p>{{$plan->description}}</p>
 							<a href="{{route('donations.create')}}" class="primary-button causes-donate">Donate Now</a>
 						</div>
 					</div>
 				</div>
+				@endforeach
 				<!-- /causes -->
 
 				<!-- causes -->
-				<div class="col-md-4">
+				<!-- <div class="col-md-4">
 					<div class="causes">
 						<div class="causes-img">
 							<a href="educationdetail">
@@ -209,13 +211,13 @@
 						</div>
 						<div class="causes-progress">
 							<div class="causes-progress-bar">
-								<!-- <div style="width: 53%;">
+								<div style="width: 53%;">
 									<span>53%</span>
-								</div> -->
+								</div>
 							</div>
 							<div>
-								<!-- <span class="causes-raised">Raised: <strong>52.000$</strong></span>
-								<span class="causes-goal">Goal: <strong>90.000$</strong></span> -->
+								<span class="causes-raised">Raised: <strong>52.000$</strong></span>
+								<span class="causes-goal">Goal: <strong>90.000$</strong></span>
 							</div>
 						</div>
 						<div class="causes-content">
@@ -224,11 +226,11 @@
 							<a href="{{route('donations.create')}}" class="primary-button causes-donate">Donate Now</a>
 						</div>
 					</div>
-				</div>
+				</div> -->
 				<!-- /causes -->
 
 				<!-- causes -->
-				<div class="col-md-4">
+				<!-- <div class="col-md-4">
 					<div class="causes">
 						<div class="causes-img">
 							<a href="educationdetail">
@@ -237,13 +239,13 @@
 						</div>
 						<div class="causes-progress">
 							<div class="causes-progress-bar">
-								<!-- <div style="width: 72%;">
+								<div style="width: 72%;">
 									<span>72%</span>
-								</div> -->
+								</div>
 							</div>
 							<div>
-								<!-- <span class="causes-raised">Raised: <strong>52.000$</strong></span>
-								<span class="causes-goal">Goal: <strong>90.000$</strong></span> -->
+								<span class="causes-raised">Raised: <strong>52.000$</strong></span>
+								<span class="causes-goal">Goal: <strong>90.000$</strong></span>
 							</div>
 						</div>
 						<div class="causes-content">
@@ -252,7 +254,7 @@
 							<a href="{{route('donations.create')}}" class="primary-button causes-donate">Donate Now</a>
 						</div>
 					</div>
-				</div>
+				</div> -->
 				<!-- /causes -->
 
 				<!-- <div class="col-md-12"> -->

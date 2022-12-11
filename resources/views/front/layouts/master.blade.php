@@ -187,10 +187,14 @@
 					<div class="footer">
 						<h3 class="footer-title">Gallery</h3>
 						<ul class="footer-galery">
-							{{-- @foreach ($gallery as $galleries)
+							 @foreach ($gallery as $gall)
 								
-							<li><a href="#"><img src="{{ asset('/public/images/'.$galleries->image) }}" alt=""></a></li>
-							@endforeach --}}
+							<li>
+								<a href="#">
+									<img src="{{ asset('/public/images/'.$gall->image) }}" alt="">
+								</a>
+							</li>
+							@endforeach 
 
 						</ul>
 					</div>

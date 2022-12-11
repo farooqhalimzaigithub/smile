@@ -14,6 +14,7 @@ class SliderController extends Controller
      */
     public function index()
     {
+       
        $slider=Slider::all();
        return view('back.slider.index',compact('slider'));
     }

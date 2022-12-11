@@ -39,7 +39,7 @@ Route::get('/',[Frontcontroller::class,'app']);
 
 // ==============================resource routes=============================
 Route::resource('donations', 'DonationController');
-Route::resource('users', 'UserController');
+// Route::resource('users', 'UserController');
 Route::resource('events', 'EventController');
 Route::resource('plans', 'PlanController');
 Route::resource('sliders', 'SliderController');

@@ -6,15 +6,19 @@ use App\Gellary;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Slider;
+use App\Plan;
 
 
 class FrontController extends Controller
 {
     public function app()
     {
-        $slider=Slider::all();
-        $gallery=Gellary::all();
-        return view('front.layouts.app',compact('slider','gallery'));
+        $data['slider']=Slider::all();
+        $data['plans']=Plan::all();
+        // dd($slider);
+        $data['gallery']=Gellary::latest()->take(6)->get();
+        // dd($data['gallery']);
+        return view('front.layouts.app',$data);
     }
       public function donatepage()
 
