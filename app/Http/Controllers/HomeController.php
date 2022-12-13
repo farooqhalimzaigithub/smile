@@ -27,8 +27,6 @@ class HomeController extends Controller
      */
     public function index()
     {
-
-
         $data['slider']=Slider::all();
         $data['plans']=Plan::all();
         // dd($slider);
