@@ -6,16 +6,19 @@
 
 	
 	<!-- HOME OWL -->
-	<div id="home-owl" class="owl-carousel owl-theme">
+	{{-- <div id="home-owl" class="owl-carousel owl-theme">
 		<!-- home item -->
+
 		<div class="home-item">
 			<!-- section background -->
+
 			<div class="section-bg" >
 
 			</div>
 			<!-- /section background -->
 
 			<!-- home content -->
+
 			<div class="home">
 				<div class="container">
 					<div class="row">
@@ -33,7 +36,6 @@
 			<!-- /home content -->
 		</div>
 		<!-- /home item -->
-		@foreach ($slider as $sliders)
 
 		<!-- home item -->
 		<div class="home-item">
@@ -61,12 +63,75 @@
 			</div>
 			<!-- /home content -->
 		</div>
+
+
 		<!-- /home item -->
-	</div>
+	</div> --}}
+
 	<!-- /HOME OWL -->
 
 
-@endforeach
+		<!-- HOME OWL -->
+		@foreach ($slider as $sliders)
+			
+		<div id="home-owl" class="owl-carousel owl-theme">
+			<!-- home item -->
+			<div class="home-item">
+				<!-- section background -->
+				<div class="section-bg" style="background-image: url('{{ asset('/public/images/'.$sliders->image) }}');">
+				</div>
+				<!-- /section background -->
+	
+				<!-- home content -->
+				<div class="home">
+					<div class="container">
+						<div class="row">
+							<div class="col-md-8">
+								<div class="home-content">
+									<h1>Save The Humanity</h1>
+									<p class="lead">Join hands with us in improving the health and well-being
+									of people by providing them best</p>
+									<a href="donate" class="primary-button">Donate Now!</a>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<!-- /home content -->
+			</div>
+			<!-- /home item -->
+	
+			<!-- home item -->
+			<div class="home-item">
+				<!-- Background Image -->
+				<div class="section-bg" style="background-image: url({{ asset('/public/images/'.$sliders->image) }}');">
+				</div>
+				<!-- /Background Image -->
+	
+				<!-- home content -->
+				<div class="home">
+					<div class="container">
+						<div class="row">
+							<div class="col-md-8">
+								<div class="home-content">
+									<h1>Become A Donor</h1>
+									<p class="lead">Smile Charity is always looking for the talented people with various skills and backgrounds. If you want to create a real difference in the lives of underprivileged people of Pakistan, we welcome you among our team. Our objective is to offer rewarding volunteer programs to those who have time and commitment to support our community. Smile Charity is committed to providing meaningful volunteer experience to the individuals with skills and education to support our noble cause.</p>
+									<a href="donate" class="primary-button">Join Us Now!</a>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<!-- /home content -->
+			</div>
+			<!-- /home item -->
+		</div>
+
+		@endforeach
+
+		<!-- /HOME OWL -->
+
+
 
 
 	<!-- ABOUT -->

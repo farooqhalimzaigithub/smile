@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\DonationController;
 use App\Http\Controllers\front\FrontController;
 use Illuminate\Support\Facades\Route;
 
@@ -39,6 +40,18 @@ Route::get('/',[Frontcontroller::class,'app']);
 
 // ==============================resource routes=============================
 Route::resource('donations', 'DonationController');
+Route::get('approved','DonationController@approve')->name('approved');
+Route::post('approved_result','DonationController@approved')->name('approved');
+
+Route::get('unapprove','DonationController@unapprove')->name('unapprove');
+Route::post('unapproved_result','DonationController@unapproved')->name('unapproved');
+
+Route::get('create','DonationController@add');
+Route::post('create','DonationController@add_form')->name('create');
+
+
+
+
 // Route::resource('users', 'UserController');
 Route::resource('events', 'EventController');
 Route::resource('plans', 'PlanController');

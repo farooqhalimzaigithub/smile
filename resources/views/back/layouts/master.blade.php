@@ -337,17 +337,22 @@
             >
             <ul aria-expanded="false" class="collapse first-level">
                 <li class="sidebar-item">
-                    <a href="{{route('donations.index')}}" class="sidebar-link"
+                    <a href="{{url('approved')}}" class="sidebar-link"
                       ><i class="mdi mdi-note-outline"></i
-                      ><span class="hide-menu">List  </span></a
-                    >
+                      ><span class="hide-menu">Approved  </span></a>
                   </li>
-                  <!-- <li class="sidebar-item">
-                    <a href="{{route('donations.create')}}" class="sidebar-link"
+                  <li class="sidebar-item">
+                    <a href="{{url('unapprove')}}" class="sidebar-link"
+                      ><i class="mdi mdi-note-outline"></i
+                      ><span class="hide-menu">Unapproved </span></a
+                    >
+                  </li> 
+                  <li class="sidebar-item">
+                    <a href="{{url('create')}}" class="sidebar-link"
                       ><i class="mdi mdi-note-outline"></i
                       ><span class="hide-menu">Add </span></a
                     >
-                  </li> -->
+                  </li> 
                 
                   
              
