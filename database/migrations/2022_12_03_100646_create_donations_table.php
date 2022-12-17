@@ -17,7 +17,7 @@ class CreateDonationsTable extends Migration
             $table->increments('id');
             $table->string('name');
             $table->string('email');
-             $table->decimal('amount',9,2);
+            $table->decimal('amount',9,2);
             $table->string('image');
             $table->string('status')->default('0');
             $table->timestamps();

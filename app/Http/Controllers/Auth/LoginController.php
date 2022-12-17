@@ -34,11 +34,11 @@ class LoginController extends Controller
   if(!Auth::check()){
 
       return '/login';
-  } 
- 
-      return '/home'; 
-  
+  } else{
+      return '/home';  
+  }
 }
+
 
     /**
      * Create a new controller instance.

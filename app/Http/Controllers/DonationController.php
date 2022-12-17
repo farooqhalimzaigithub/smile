@@ -4,9 +4,11 @@ namespace App\Http\Controllers;
 
 use App\Donation;
 use App\Gellary;
+use Illuminate\Support\Facades\DB;
 
 use Illuminate\Http\Request;
 use Auth;
+use Facade\Ignition\Tabs\Tab;
 
 class DonationController extends Controller
 {
@@ -40,6 +42,7 @@ class DonationController extends Controller
      */
     public function store(Request $request)
     {
+        
         // dd($request->all());
         if(Auth::check()){
             $promotion= new Donation();
@@ -69,13 +72,15 @@ class DonationController extends Controller
 
     
        ]))
+
+
         // $donations->plan=$request->plan;
         // $donations->payment_type=$request->payment_type;
         // dd($donations);
         // $donations->save();
-        return redirect()->back()->with('status','Successfully Submitted');
+         return redirect()->back()->with('status','Successfully Submitted');
         }
-        else{
+         else{
              return redirect()->back()->with('status','Please  login First !');
         }
         
@@ -91,6 +96,10 @@ class DonationController extends Controller
     {
         //
     }
+
+
+
+
 
     /**
      * Show the form for editing the specified resource.
@@ -125,7 +134,7 @@ class DonationController extends Controller
     {
         $donation->delete();
 
-        return redirect()->route('donations.index')
+        return redirect()->back()
              ->withSuccess(__('Record delete successfully.'));
     }
 
@@ -135,4 +144,119 @@ class DonationController extends Controller
             'image' => 'required|mimes:jpeg,bmp,png,jpg|max:10000',
         ]);
     }
+
+    public function approve()
+    {
+        $approved=Donation::orderBy('id','DESC')->where('status','=','Approved')->get();
+        return view('back.donation.approved',compact('approved'));
+    }
+
+    public function approved(Request $request)
+    {
+        // dd($requst->all)
+        $other=$request->input('name');
+
+        $search=DB::table('donations')
+            ->whereBetween('created_at',[$request->from_date,$request->to_date])
+            ->where('name','LIKE','%' .$other.'%')
+            ->where('status','=','Approved')
+            ->orWhere('amount','=', $other)
+            ->get();
+            // dd($search);
+
+        return view('back.donation.approved_result',compact('search'));
+    }
+
+    public function unapprove()
+    {
+        $unapproved=Donation::orderBy('id','DESC')->where('status','=','0')->get();
+        return view('back.donation.unapproved',compact('unapproved'));
+    }
+
+    public function unapproved(Request $request)
+    {
+
+        $other=$request->input('name');
+
+        $search=DB::table('donations')
+            ->whereBetween('created_at',[$request->from_date,$request->to_date])
+            ->where('name','LIKE','%' .$other.'%')
+            ->where('status','=','0')
+            ->orWhere('amount','=', $other)
+            ->get();
+ 
+        // dd($search);
+
+
+        return view('back.donation.unapproved_result',compact('search'));
+    }
+
+    public function add()
+    {
+        return view('back.donation.create');
+    }
+
+    public function add_form(Request $request)
+    {
+        // $input = $request->all();
+        // dd($request->all());
+
+        if(Auth::check()){
+                $name=$request->name;
+               $email=$request->email;
+               $amount=$request->amount;
+               $plan=$request->plan;
+               $payment_type=$request->payment_type;
+               $user_id=Auth::user()->id;
+               $filename=$request->image;
+
+
+
+
+
+            $promotion= new Donation();
+            $this->validate_mage($request);
+
+            // $promotion->status="Approved";
+            // $promotion->save();
+            // dd($promotion);
+    
+          if($request->file('image')){
+              $file= $request->file('image');
+              $filename= date('YmdHi').$file->getClientOriginalName();
+               $destinationPath = 'public/images/'; //for local link will be
+              $datetime = str_replace([' ', ':'], '-', date('mdYhisa', time()));
+               $file->move($destinationPath, $filename);
+              // $file-> move(public_path('public/images/homeslider'), $filename);
+              // $data['image']= $filename;
+
+          }
+
+
+          if(Donation::create([
+           'image' => $filename ,
+           'name' => $name ,
+           'email' => $email ,
+           'amount' => $amount ,
+           'plan' => $plan,
+           'payment_type' =>$payment_type ,
+           'user_id'=>$user_id,
+           'status'=>"Approved",
+
+
+
+    
+       ]))
+
+            return redirect()->back()->with('status','Successfully Submitted');
+        }
+        else{
+
+         return redirect()->back()->with('status','Please  login First !');
+        }
+
+    }
+
+
+
 }

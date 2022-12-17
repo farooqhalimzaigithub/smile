@@ -8,6 +8,8 @@ class Donation extends Model
 {
     protected $table = 'donations';
     protected $guarded = [];
+    protected $fillable = ['name','email','amount','payment_type','plan','image','status','user_id'];
+
 
     // public function user()
     // {
