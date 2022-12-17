@@ -32,10 +32,10 @@ class LoginController extends Controller
   $user = Auth::check(); 
 
   if(!Auth::check()){
-dd('return login');
+
       return '/login';
   } 
-  dd('return home');
+ 
       return '/home'; 
   
 }
