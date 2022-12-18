@@ -465,6 +465,9 @@
                       ><span class="hide-menu">Add </span></a
                     >
                   </li>
+
+
+                  
                 
                   
              
@@ -472,8 +475,60 @@
               
             </ul>
           </li>
+
+          <li class="sidebar-item">
+            <a
+              class="sidebar-link has-arrow waves-effect waves-dark"
+              href="javascript:void(0)"
+              aria-expanded="false"
+              ><i class="mdi mdi-receipt"></i
+              ><span class="hide-menu">Company_Info </span></a
+            >
+            <ul aria-expanded="false" class="collapse first-level">
+                <li class="sidebar-item">
+                    <a href="{{ route('company.index') }}" class="sidebar-link"
+                      ><i class="mdi mdi-note-outline"></i
+                      ><span class="hide-menu">List  </span></a
+                    >
+                  </li>
+                  <li class="sidebar-item">
+                    <a href="{{ route('company.create') }}" class="sidebar-link"
+                      ><i class="mdi mdi-note-outline"></i
+                      ><span class="hide-menu">Add </span></a
+                    >
+                  </li>
+            </ul>
+          </li>
+
+
+          <li class="sidebar-item">
+            <a
+              class="sidebar-link has-arrow waves-effect waves-dark"
+              href="javascript:void(0)"
+              aria-expanded="false"
+              ><i class="mdi mdi-receipt"></i
+              ><span class="hide-menu">About </span></a
+            >
+            <ul aria-expanded="false" class="collapse first-level">
+                <li class="sidebar-item">
+                    <a href="{{ url('about/show') }}" class="sidebar-link"
+                      ><i class="mdi mdi-note-outline"></i
+                      ><span class="hide-menu">List  </span></a
+                    >
+                  </li>
+                  <li class="sidebar-item">
+                    <a href="{{ route('about.create') }}" class="sidebar-link"
+                      ><i class="mdi mdi-note-outline"></i
+                      ><span class="hide-menu">Add </span></a
+                    >
+                  </li>
+
+                  
               
             </ul>
+          </li>
+
+          
           </nav>
           <!-- End Sidebar navigation -->
         </div>

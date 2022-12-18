@@ -8,6 +8,9 @@
 	<!-- /Page Header -->
 
 	<!-- ABOUT -->
+
+	@foreach ($about as $abouts )
+		
 	<div id="about" class="section">
 		<!-- container -->
 		<div class="container">
@@ -16,8 +19,8 @@
 				<!-- about content -->
 				<div class="col-md-8 col-md-offset-2" style="margin-top: -40px;">
 						<div class="section-title text-center">
-							<h2 class="title">Fundraising for the People in Need in Pakistan</h2>
-							<p class="sub-title">Donate your funds in the fields of Education, Health and Poverty and show your sympathy with the people bleonging from the lower class in different areas of Pakistan</p>
+							<h2 class="title">{{ $abouts->title }}</h2>
+							<p class="sub-title">{{ $abouts->heading }}</p>
 						</div>
 				</div>
             
@@ -27,7 +30,7 @@
 						<h2 class="title">Brief Description</h2>
 					</div>
 					<div class="about-content linespace">
-						<p>Smile Charities is the largest technology platform for crowdfunding in the healthcare , poverty and eduction sector of Pakistan. We offer a complete range of free services including medical and surgical treatments, educational expenses, solving families financial issues facility to the underprivileged community of Pakistan. Our goal is to reach the millions of needy patients all over Pakistan who are suffering because of lack of their basic living  facilities. We continue to serve the humanity at large by providing the best services in Pakistan.</p>
+						<p>{{ $abouts->about_text }}</p>
 						<a href="donate" class="primary-button">Donate Now</a>
 					</div>
 				</div>
@@ -36,7 +39,7 @@
 				<!-- about video -->
 				<div class="col-md-offset-1 col-md-6" style="margin-top: 30px;">
 					<a href="#" class="about-video">
-							<img src="./img/about.jpg" alt="">
+							<img src="{{ asset('/public/images/'.$abouts->image) }}" alt="">
 						</a>
 				</div>
 				<!-- /about video -->
@@ -46,6 +49,8 @@
 		<!-- /container -->
 	</div>
 	<!-- ABOUT -->
+	@endforeach
+
 
 	<!-- TESTIMONIAL -->
 	<div id="testimonial" class="section" style="margin-top: 70px;">

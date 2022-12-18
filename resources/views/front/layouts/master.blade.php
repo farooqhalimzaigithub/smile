@@ -169,15 +169,19 @@
 				<!-- footer contact -->
 				<div class="col-md-4">
 					<div class="footer">
+						@foreach ($company as $companies)
+							
 						<div class="footer-logo">
-							<a class="logo" href="{{url('/home')}}"><img src="{{asset('front-assets/logo.jpg')}}" alt=""></a>
+							<a class="logo" href="{{url('/home')}}"><img src="{{ asset('/public/images/'.$companies->image) }}" alt=""></a>
 						</div>
-						<p>Al Asmat Foundation provides free Medical Camp , Education Help & Poverty services across Pakistan to those who cannot afford.</p>
+						<p>{{ $companies->about_company }}</p>
 						<ul class="footer-contact">
-							<li><i class="fa fa-map-marker"></i> Punjab center Near Chemaa Chowk Phalia Mandi Bahaodin Road  Pakistan</li>
-							<li><i class="fa fa-phone"></i> +92(23)-7755002</li>
-							<li><i class="fa fa-envelope"></i> <a href="#">AlAsmatFoundation@gmail.com</a></li>
+							<li><i class="fa fa-map-marker"></i> {{ $companies->address }}</li>
+							<li><i class="fa fa-phone"></i>{{ $companies->contact }}</li>
+							<li><i class="fa fa-envelope"></i> <a href="#">{{ $companies->email }}</a></li>
 						</ul>
+						@endforeach
+
 					</div>
 				</div>
 				<!-- /footer contact -->

@@ -1,9 +1,12 @@
 <?php
 
+use App\Http\Controllers\AboutController;
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\CompanyInfosController;
 use App\Http\Controllers\DonationController;
 use App\Http\Controllers\front\FrontController;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Auth;
 
 
 
@@ -39,6 +42,8 @@ Route::get('/',[Frontcontroller::class,'app']);
 // Route::get('', 'htmlcontroller@donatepage');
 
 // ==============================resource routes=============================
+
+//donation 
 Route::resource('donations', 'DonationController');
 Route::get('approved','DonationController@approve')->name('approved');
 Route::post('approved_result','DonationController@approved')->name('approved');
@@ -57,6 +62,20 @@ Route::resource('events', 'EventController');
 Route::resource('plans', 'PlanController');
 Route::resource('sliders', 'SliderController');
 Route::resource('gelleries', 'GellaryController');
+
+//company_info routes
+Route::get('company/create',[CompanyInfosController::class,'create'])->name('company.create');
+Route::post('company/store',[CompanyInfosController::class,'store'])->name('company.store');
+Route::get('company',[CompanyInfosController::class,'index'])->name('company.index');
+Route::get('company/delete/{id}',[CompanyInfosController::class,'destroy'])->name('company.destroy');
+
+
+// about routes
+Route::get('about/create',[AboutController::class,'create'])->name('about.create');
+Route::post('about/store',[AboutController::class,'store'])->name('about.store');
+Route::get('about/show',[AboutController::class,'index'])->name('about.index');
+Route::get('about/delete/{id}',[AboutController::class,'destroy'])->name('about.destroy');
+
 
 
 

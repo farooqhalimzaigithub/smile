@@ -7,6 +7,8 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Slider;
 use App\Plan;
+use App\Company_infos;
+
 
 
 
@@ -19,6 +21,8 @@ class FrontController extends Controller
         $data['plans']=Plan::all();
          // dd($data['plans']);
         $data['gallery']=Gellary::latest()->take(6)->get();
+        $data['company']=Company_infos::all();
+
         // dd($data['gallery']);
         return view('front.layouts.app',$data);
     }

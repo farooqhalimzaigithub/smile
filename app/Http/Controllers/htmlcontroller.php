@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Abouts;
+use App\Company_infos;
 use App\Donations as AppDonations;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Redis;
@@ -26,13 +28,19 @@ class htmlcontroller extends Controller
     {
         
         $data['gallery']=Gellary::latest()->take(6)->get();
+        $data['company']=Company_infos::all();
+        $data['about']=Abouts::all();
+
+
         return view('front.pages.about',$data);
     }
 
      public function educationpage()
     {
         
- $data['gallery']=Gellary::latest()->take(6)->get();
+        $data['gallery']=Gellary::latest()->take(6)->get();
+        $data['company']=Company_infos::all();
+
         return view('front.pages.education',$data);
     }
 
@@ -44,6 +52,8 @@ class htmlcontroller extends Controller
       public function medicalpage()
     {
          $data['gallery']=Gellary::latest()->take(6)->get();
+        $data['company']=Company_infos::all();
+
         return view('front.pages.medical',$data);
     }
 
@@ -55,6 +65,8 @@ class htmlcontroller extends Controller
      public function povertypage()
     {
         $data['gallery']=Gellary::latest()->take(6)->get();
+        $data['company']=Company_infos::all();
+
         return view('front.pages.poverty',$data);
     }
 
@@ -68,6 +80,8 @@ class htmlcontroller extends Controller
         $data['event']=Event::all();
         // dd( $data['event']);
          $data['gallery']=Gellary::latest()->take(6)->get();
+        $data['company']=Company_infos::all();
+
         return view('front.pages.upcomingevent',$data);
     }
 
@@ -80,6 +94,8 @@ class htmlcontroller extends Controller
     {
          $data['event']=Event::all();
          $data['gallery']=Gellary::latest()->take(6)->get();
+         $data['company']=Company_infos::all();
+ 
 
         return view('front.pages.completedevent',$data);
     }
@@ -122,6 +138,9 @@ class htmlcontroller extends Controller
      public function contactpage()
     {
           $data['gallery']=Gellary::latest()->take(6)->get();
+          $data['company']=Company_infos::all();
+
+          
         return view('front.pages.contact',$data);
     }
 

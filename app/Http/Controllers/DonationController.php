@@ -4,10 +4,12 @@ namespace App\Http\Controllers;
 
 use App\Donation;
 use App\Gellary;
+use Illuminate\Support\Facades\Auth;
+
 use Illuminate\Support\Facades\DB;
 
 use Illuminate\Http\Request;
-use Auth;
+
 use Facade\Ignition\Tabs\Tab;
 
 class DonationController extends Controller
@@ -256,6 +258,7 @@ class DonationController extends Controller
         }
 
     }
+    
 
 
 

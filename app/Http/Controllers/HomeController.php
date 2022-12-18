@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Company_infos;
 use App\Slider;
 use App\Gellary;
 use App\Plan;
@@ -31,6 +32,9 @@ class HomeController extends Controller
         $data['plans']=Plan::all();
         // dd($slider);
          $data['gallery']=Gellary::latest()->take(6)->get();
+         $data['company']=Company_infos::all();
+         
+
         return view('front.layouts.app',$data);
 
     }
