@@ -5,6 +5,10 @@
       <p class="alert alert-info">{{ Session::get('successer') }}</p>
       @endif
 
+      @if(Session::has('update'))
+<p class="alert alert-info">{{ Session::get('update') }}</p>
+@endif
+
       <div class="container mb-2">
         <div class="row">
           <div class="col-md-12">
@@ -47,12 +51,13 @@
                         <td>{{ $company->address }}</td>
                         {{-- <td>{{ $company->image }}</td>
                          --}}
-                        <td><img style="width: 50%;" src="public/images/{{$company->image}}"></td> 
+                        <td><img style="width: 50%;" src="/public/images/{{$company->image}}"></td> 
 
 
                           
-                            {{-- <a href="" class=""><i class="fas fa-edit"></i></a> --}}
-                            <td><a href="{{route('company.destroy',$company->id)}}" class=""><i class="fas fa-trash"></i></a></td>
+                           
+                            <td><a href="{{route('company.edit',$company->id)}}" class=""><i class="fas fa-edit"></i></a>
+                            <a href="{{route('company.destroy',$company->id)}}" class=""><i class="fas fa-trash"></i></a></td>
                             
                               
                             {{-- <td>

@@ -66,13 +66,53 @@ class AboutController extends Controller
 
     public function destroy($id)
     {
-        $companies=Abouts::find($id);
-        if(!is_null($companies)){
-            $companies->delete();
+        $abouts=Abouts::find($id);
+        if(!is_null($abouts)){
+            $abouts->delete();
             return redirect()->back()->with('successer','Record delete successfully');
         }
         return redirect()->back()->with('failer','Something went wrong');
     
+    }
+
+
+    public function edit($id)
+    {
+        $abouts=Abouts::find($id);
+        return view('back.about.edit',compact('abouts'));
+    }
+
+    public function update($id,Request $request)
+    {
+        
+        $abouts=Abouts::find($id);
+        $abouts->title=$request->title;
+        $abouts->heading=$request->heading;
+        $abouts->about_text=$request->about_text;
+
+        $request->image;
+
+        if($request->file('image')){
+            $file= $request->file('image');
+            $filename= date('YmdHi').$file->getClientOriginalName();
+             $destinationPath = 'public/images/'; //for local link will be
+            $datetime = str_replace([' ', ':'], '-', date('mdYhisa', time()));
+             $file->move($destinationPath, $filename);
+            $abouts->image=$filename;
+
+        }
+    
+        $result=$abouts->save();
+    
+        if($result){
+            return redirect('about/show')->with('update','Data has been updated successfully');
+    
+        }
+        else{
+            return redirect()->back()->with('fail','Something went wrong');
+        }
+    
+
     }
 
 }

@@ -68,6 +68,10 @@ Route::get('company/create',[CompanyInfosController::class,'create'])->name('com
 Route::post('company/store',[CompanyInfosController::class,'store'])->name('company.store');
 Route::get('company',[CompanyInfosController::class,'index'])->name('company.index');
 Route::get('company/delete/{id}',[CompanyInfosController::class,'destroy'])->name('company.destroy');
+Route::get('company/edit/{id}',[CompanyInfosController::class,'edit'])->name('company.edit');
+Route::post('company/update/{id}',[CompanyInfosController::class,'update'])->name('company.update');
+
+
 
 
 // about routes
@@ -75,6 +79,8 @@ Route::get('about/create',[AboutController::class,'create'])->name('about.create
 Route::post('about/store',[AboutController::class,'store'])->name('about.store');
 Route::get('about/show',[AboutController::class,'index'])->name('about.index');
 Route::get('about/delete/{id}',[AboutController::class,'destroy'])->name('about.destroy');
+Route::get('about/edit/{id}',[AboutController::class,'edit'])->name('about.edit');
+Route::post('about/update/{id}',[AboutController::class,'update'])->name('about.update');
 
 
 

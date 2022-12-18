@@ -42,26 +42,15 @@
                         <td>{{ $about->heading }}</td>
                         <td>{{ $about->about_text }}</td>
 
-                        {{-- <td>{{ $company->image }}</td>
-                         --}}
-                        <td><img style="width: 50%;" src="public/images/{{$about->image}}"></td> 
+                        <td><img style="width: 50%;" src="/public/images/{{$about->image}}"></td>
 
 
                           
-                            {{-- <a href="" class=""><i class="fas fa-edit"></i></a> --}}
-                            <td><a href="{{route('about.destroy',$about->id)}}" class=""><i class="fas fa-trash"></i></a></td>
+                            <td><a href="{{route('about.edit',$about->id)}}" class=""><i class="fas fa-edit"></i></a>
+                            <a href="{{route('about.destroy',$about->id)}}" class=""><i class="fas fa-trash"></i></a></td>
                             
                               
-                            {{-- <td>
-      
-                            <form method="post" action="{{route('company.destroy',$company->id)}}">
-                              @method('delete')
-                              @csrf
-                             <button style="border: none" type="submit" class=""><i class="fa fa-trash" aria-hidden="true"></i></button> 
-                          </form>
-                           
-      
-                        </td> --}}
+
 
                       </tr>
                       @endforeach

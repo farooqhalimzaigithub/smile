@@ -17,11 +17,7 @@ class CompanyInfosController extends Controller
         return view('back.company_info.index',compact('companies'));
     }
 
-    // public function show()
-    // {
-    //     $companies=Company_infos::all();
-    //     return view('front.layouts.master',compact('companies'));
-    // }
+
 
     
 
@@ -87,5 +83,45 @@ class CompanyInfosController extends Controller
         }
         return redirect()->back()->with('failer','Something went wrong');
     
+    }
+
+    public function edit($id)
+    {
+        $company=Company_infos::find($id);
+        return view('back.company_info.edit',compact('company'));
+    }
+
+    public function update($id,Request $request)
+    {
+        
+        $company=Company_infos::find($id);
+        $company->title=$request->title;
+        $company->email=$request->email;
+        $company->contact=$request->contact;
+        $company->address=$request->address;
+        $company->about_company=$request->about_company;
+        $request->image;
+
+        if($request->file('image')){
+            $file= $request->file('image');
+            $filename= date('YmdHi').$file->getClientOriginalName();
+             $destinationPath = 'public/images/'; //for local link will be
+            $datetime = str_replace([' ', ':'], '-', date('mdYhisa', time()));
+             $file->move($destinationPath, $filename);
+            $company->image=$filename;
+
+        }
+    
+        $result=$company->save();
+    
+        if($result){
+            return redirect('company')->with('update','Data has been updated successfully');
+    
+        }
+        else{
+            return redirect()->back()->with('fail','Something went wrong');
+        }
+    
+
     }
 }
