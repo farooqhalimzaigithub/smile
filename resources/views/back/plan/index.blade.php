@@ -38,7 +38,7 @@
                       <tr>
                         <th scope="row">{{ $key+1 }}</th>
                         <td>{{ $plan->title }}</td>
-                        <td>{{ $plan->image }}</td>
+                        <td><img style="width: 50%;" src="/public/images/{{$plan->image}}"></td> 
                         <td>{{ $plan->description }}</td>
                         <td>
                          <!--  @if ($plan->status=='0')

@@ -37,7 +37,8 @@
                       <tr>
                         <th scope="row">{{ $key+1 }}</th>
                         <td>{{ $events->title }}</td>
-                        <td>{{ $events->image }}</td>
+                        <td><img style="width: 50%;" src="/public/images/{{$events->image}}"></td> 
+
                         <td>{{ $events->description }}</td>
                         <td>{{ $events->raise_price }}</td>
                         <td>{{ $events->goal_price }}</td>

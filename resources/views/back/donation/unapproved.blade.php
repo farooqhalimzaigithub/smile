@@ -29,7 +29,7 @@
           <div class="row">
             <div class="col-md-12">
               <label for="">Submit</label>
-              <input  type="submit" name="search" class="text-success form-control"/>
+              <input  type="submit" name="search" class="btn btn-primary form-control"/>
             </div>
           </div>
 
@@ -77,15 +77,16 @@
                         <td>{{ $unapproveds->name }}</td>
                         <td>{{ $unapproveds->email }}</td>
                         <td>{{ $unapproveds->amount }}</td>
-                        <td>{{ $unapproveds->image }}</td>
+                        <td><img style="width: 50%;" src="/public/images/{{$unapproveds->image}}"></td> 
+
 
                         <td>
                           @if ($unapproveds->status=='0')
                               {{-- <a style="border-radius: 25px 25px;"  class="btn btn-danger" href="{{url('donation-approved',$donation->id)}}">UnApprove</a> --}}
-                              <a style="border-radius: 25px 25px;"  class="btn btn-danger" href="">UnApprove</a>
+                              <a style="border-radius: 25px 25px;"  class="btn btn-primary" href="{{ url('unapproved',$unapproveds->id) }}">UnApprove</a>
 
                           @else
-                          <a  style="border-radius: 25px 25px;" class="btn btn-success"  href="">Approved</a>
+                          <a  style="border-radius: 25px 25px;" class="btn btn-primary"  href="">Approved</a>
                           @endif
       
                           {{-- {!! $datas->status== 'Done'? "<span class='bg-success' style='width:10px;'>Yes</span>" : "<span class='bg-danger'>No</span>" !!} --}}

@@ -33,7 +33,8 @@
                       <tr>
                         <th scope="row">{{ $key+1 }}</th>
 
-                        <td>{{ $gellaries->image }}</td>
+                        <td><img style="width: 50%;" src="/public/images/{{$gellaries->image}}"></td> 
+
   
 
                           <td>

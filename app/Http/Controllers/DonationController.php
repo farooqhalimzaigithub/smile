@@ -169,10 +169,19 @@ class DonationController extends Controller
         return view('back.donation.approved_result',compact('search'));
     }
 
+
+
     public function unapprove()
     {
         $unapproved=Donation::orderBy('id','DESC')->where('status','=','0')->get();
         return view('back.donation.unapproved',compact('unapproved'));
+    }
+
+    public function approve_result($id){
+        $approved=Donation::find($id);
+        $approved->status="0";
+        $approved->save();
+        return redirect()->back();
     }
 
     public function unapproved(Request $request)
@@ -191,6 +200,13 @@ class DonationController extends Controller
 
 
         return view('back.donation.unapproved_result',compact('search'));
+    }
+
+    public function unapprove_result($id){
+        $unapproved=Donation::find($id);
+        $unapproved->status="Approved";
+        $unapproved->save();
+        return redirect()->back();
     }
 
     public function add()
