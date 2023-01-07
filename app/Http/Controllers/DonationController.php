@@ -11,6 +11,7 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 
 use Facade\Ignition\Tabs\Tab;
+use App\Company_infos;
 
 class DonationController extends Controller
 {
@@ -32,8 +33,9 @@ class DonationController extends Controller
      */
     public function create()
     {
-        $gallery=Gellary::all();
-         return view('front.pages.donation',compact('gallery'));
+        $data['gallery']=Gellary::all();
+         $data['company']=Company_infos::all();
+         return view('front.pages.donation',$data);
     }
 
     /**

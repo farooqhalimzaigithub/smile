@@ -61,7 +61,7 @@
                             <th scope="col">Name</th>
                             <th scope="col">Email</th>
                             <th scope="col">Amounts</th>
-                            <th scope="col">Image</th>
+                            <th scope="col">File</th>
     
                             <th scope="col">Status</th>
                             <th scope="col">Action</th>
@@ -78,7 +78,7 @@
                             <td>{{ $approveds->name }}</td>
                             <td>{{ $approveds->email }}</td>
                             <td>{{ $approveds->amount }}</td>
-                            <td><img style="width: 50%;" src="/public/images/{{$approveds->image}}"></td> 
+                            <td><img style="width: 50px; height: 50px;" src="/public/images/{{$approveds->image}}"></td> 
     
                             <td>
                               @if ($approveds->status=='0')
@@ -101,7 +101,7 @@
                                 <form method="post" action="{{route('donations.destroy',$approveds->id)}}">
                                   @method('delete')
                                   @csrf
-                                 <button style="border: none" type="submit" class=""><i class="fa fa-trash" aria-hidden="true"></i></button> 
+                                 <button style="border: none" type="submit" class=""><i class="fa fa-trash text-danger" aria-hidden="true"></i></button> 
                               </form>
                                
           

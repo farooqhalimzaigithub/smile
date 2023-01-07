@@ -38,31 +38,19 @@
                       <tr>
                         <th scope="row">{{ $key+1 }}</th>
                         <td>{{ $sliders->title }}</td>
-                        <td>{{ $sliders->image }}</td>
+                        <td><img style="width: 50px; height: 50px;" src="/public/images/{{$sliders->image}}"></td>
                         <td>{{ $sliders->description }}</td>
                         <td>
-                         <!--  @if ($sliders->status=='0')
-                              <a style="border-radius: 25px 25px;"  class="btn btn-danger" href="{{url('plan-approved',$plan->id)}}">UnApprove</a>
-                          @else
-                          <a  style="border-radius: 25px 25px;" class="btn btn-success"  href="">Approved</a>
-                          @endif -->
+                      
       
-                          {{-- {!! $datas->status== 'Done'? "<span class='bg-success' style='width:10px;'>Yes</span>" : "<span class='bg-danger'>No</span>" !!} --}}
-                          </td>
-{{-- 
-                          <td>
-                          
-                            <a href="" class=""><i class="fas fa-edit"></i></a>
-                              
-                          </td> --}}
       
-                            {{-- <a href="{{ route('plans.destroy',$plan->id ) }}" class="ml-2"><i class="fa fa-trash" aria-hidden="true"></i></a> --}}
+                           
                            <td>
       
                             <form method="post" action="{{route('sliders.destroy',$sliders->id)}}">
                               @method('delete')
                               @csrf
-                             <button style="border: none" type="submit" class=""><i class="fa fa-trash" aria-hidden="true"></i></button> 
+                             <button style="border: none" type="submit" class=""><i class="fa fa-trash text-danger" aria-hidden="true"></i></button> 
                           </form>
 
                         </td>

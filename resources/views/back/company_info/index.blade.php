@@ -26,22 +26,18 @@
                   <table class="table table-striped">
                     <thead>
                       <tr>
-                        <th scope="col">S.No</th>
-                        <th scope="col">Title</th>
-                        <th scope="col">Email</th>
-                        <th scope="col">About Company</th>
-                        <th scope="col">Contact</th>
-                        <th scope="col">Address</th>
-                        <th scope="col">Logo</th>
-                        <th scope="col">Action</th>
-
-
+                        <th >S.No</th>
+                        <th >Title</th>
+                        <th >Email</th>
+                        <th >About Company</th>
+                        <th >Contact</th>
+                        <th >Address</th>
+                        <th >Logo</th>
+                        <th >Action</th>
                       </tr>
                     </thead>
                     <tbody>
                       @foreach ($companies as $key=>$company)
-                        
-                    
                       <tr>
                         <th scope="row">{{ $key+1 }}</th>
                         <td>{{ $company->title }}</td>
@@ -49,29 +45,14 @@
                         <td>{{ $company->about_company }}</td>
                         <td>{{ $company->contact }}</td>
                         <td>{{ $company->address }}</td>
-                        {{-- <td>{{ $company->image }}</td>
-                         --}}
-                        <td><img style="width: 50%;" src="/public/images/{{$company->image}}"></td> 
-
-
-                          
-                           
-                            <td><a href="{{route('company.edit',$company->id)}}" class=""><i class="fas fa-edit"></i></a>
-                            <a href="{{route('company.destroy',$company->id)}}" class=""><i class="fas fa-trash"></i></a></td>
-                            
-                              
-                            {{-- <td>
-      
-                            <form method="post" action="{{route('company.destroy',$company->id)}}">
-                              @method('delete')
-                              @csrf
-                             <button style="border: none" type="submit" class=""><i class="fa fa-trash" aria-hidden="true"></i></button> 
-                          </form>
-                           
-      
-                        </td> --}}
-
-                      </tr>
+                        <td><img style="width: 50px; height: 50px;" src="/public/images/{{$company->image}}"></td> 
+                        <td>
+                          <a href="{{route('company.edit',$company->id)}}" class=""><i class="fas fa-edit text-success"></i>
+                          </a>
+                          <a href="{{route('company.destroy',$company->id)}}" class=""><i class="fas fa-trash text-danger"></i>
+                          </a>
+                        </td>
+                             </tr>
                       @endforeach
                     </tbody>
                   </table>
