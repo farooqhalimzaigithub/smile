@@ -83,7 +83,7 @@
                         <td>
                           @if ($searches->status=='0')
                               {{-- <a style="border-radius: 25px 25px;"  class="btn btn-danger" href="{{url('donation-approved',$donation->id)}}">UnApprove</a> --}}
-                              <a style="border-radius: 25px 25px;"  class="btn btn-primary" href="{{ url('unapproved',$unapproveds->id) }}">UnApprove</a>
+                              <a style="border-radius: 25px 25px;"  class="btn btn-primary" href="{{ url('unapproved',$searches->id) }}">UnApprove</a>
 
                           @else
                           <a  style="border-radius: 25px 25px;" class="btn btn-primary"  href="">Approved</a>

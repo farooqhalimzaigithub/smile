@@ -85,7 +85,7 @@
                               <a style="border-radius: 25px 25px;"  class="btn btn-danger" href="">UnApprove</a>
 
                           @else
-                          <a  style="border-radius: 25px 25px;" class="btn btn-primary"  href="{{ url('approved',$approveds->id) }}">Approved</a>
+                          <a  style="border-radius: 25px 25px;" class="btn btn-primary"  href="{{ url('approved',$searches->id) }}">Approved</a>
                           @endif
       
                           {{-- {!! $datas->status== 'Done'? "<span class='bg-success' style='width:10px;'>Yes</span>" : "<span class='bg-danger'>No</span>" !!} --}}
