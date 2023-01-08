@@ -39,12 +39,12 @@ button:"OK"
                   <table class="table table-striped">
                     <thead>
                       <tr>
-                        <th scope="col">S.No</th>
-                        <th scope="col">Title</th>
-                        <th scope="col">Heading</th>
-                        <th scope="col">About Text</th>
-                        <th scope="col">Image</th>
-                        <th scope="col">Action</th>
+                        <th >S.No</th>
+                        <th >Title</th>
+                        <th >Heading</th>
+                        <th >About Text</th>
+                        <th >Image</th>
+                        <th >Action</th>
 
 
                       </tr>
@@ -59,12 +59,12 @@ button:"OK"
                         <td>{{ $about->heading }}</td>
                         <td>{{ $about->about_text }}</td>
 
-                        <td><img style="width: 50%;" src="/public/images/{{$about->image}}"></td>
+                        <td><img style="width: 50px; height: 50px;" src="/public/images/{{$about->image}}"></td>
 
 
                           
-                            <td><a href="{{route('about.edit',$about->id)}}" class=""><i class="fas fa-edit"></i></a>
-                            <a href="{{route('about.destroy',$about->id)}}" class=""><i class="fas fa-trash"></i></a></td>
+                            <td><a href="{{route('about.edit',$about->id)}}" class=""><i class="fas fa-edit text-success"></i></a>
+                            <a href="{{route('about.destroy',$about->id)}}" class=""><i class="fas fa-trash text-danger"></i></a></td>
                             
                               
 

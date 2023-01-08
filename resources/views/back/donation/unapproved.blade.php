@@ -69,7 +69,7 @@ button:"OK"
                         <th scope="col">Name</th>
                         <th scope="col">Email</th>
                         <th scope="col">Amounts</th>
-                        <th scope="col">Image</th>
+                        <th scope="col">File</th>
 
                         <th scope="col">Status</th>
                         <th scope="col">Action</th>
@@ -86,7 +86,7 @@ button:"OK"
                         <td>{{ $unapproveds->name }}</td>
                         <td>{{ $unapproveds->email }}</td>
                         <td>{{ $unapproveds->amount }}</td>
-                        <td><img style="width: 50%;" src="/public/images/{{$unapproveds->image}}"></td> 
+                        <td><img style="width: 50px; height: 50px;" src="/public/images/{{$unapproveds->image}}"></td> 
 
 
                         <td>
@@ -110,7 +110,7 @@ button:"OK"
                             <form method="post" action="{{route('donations.destroy',$unapproveds->id)}}">
                               @method('delete')
                               @csrf
-                             <button style="border: none" type="submit" class=""><i class="fa fa-trash" aria-hidden="true"></i></button> 
+                             <button style="border: none" type="submit" class=""><i class="fa fa-trash  text-danger" aria-hidden="true"></i></button> 
                           </form>
                            
       

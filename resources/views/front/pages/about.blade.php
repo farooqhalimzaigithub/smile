@@ -39,7 +39,7 @@
 				<!-- about video -->
 				<div class="col-md-offset-1 col-md-6" style="margin-top: 30px;">
 					<a href="#" class="about-video">
-							<img src="{{ asset('/public/images/'.$abouts->image) }}" alt="">
+							<img src="{{ asset('/public/images/'.$abouts->image) }}" alt="" style="width: 450px; height: 330px;">
 						</a>
 				</div>
 				<!-- /about video -->

@@ -23,7 +23,7 @@ class FrontController extends Controller
         $data['gallery']=Gellary::latest()->take(6)->get();
         $data['company']=Company_infos::all();
 
-        // dd($data['gallery']);
+         // dd($data['slider']);
         return view('front.layouts.app',$data);
     }
       public function donatepage()

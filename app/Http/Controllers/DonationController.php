@@ -11,6 +11,8 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 
 use Facade\Ignition\Tabs\Tab;
+use App\Company_infos;
+use  Mail;
 
 class DonationController extends Controller
 {
@@ -32,8 +34,9 @@ class DonationController extends Controller
      */
     public function create()
     {
-        $gallery=Gellary::all();
-         return view('front.pages.donation',compact('gallery'));
+        $data['gallery']=Gellary::all();
+         $data['company']=Company_infos::all();
+         return view('front.pages.donation',$data);
     }
 
     /**
@@ -76,10 +79,14 @@ class DonationController extends Controller
        ]))
 
 
-        // $donations->plan=$request->plan;
-        // $donations->payment_type=$request->payment_type;
-        // dd($donations);
-        // $donations->save();
+          $to_name = "farooq";
+          $to_email = "farooqhalimzai24@gmail.com";
+          $data = array('name'=>"Ogbonna Vitalis(farooq)", "body" => "A test mail");
+          Mail::send('emails.mail', $data, function($message) use ($to_name, $to_email) {
+          $message->to($to_email, $to_name)
+          ->subject('Laravel Test Mail');
+          $message->from('SENDER_EMAIL_ADDRESS','Test Mail');
+          });
          return redirect()->back()->with('status','Successfully Submitted');
         }
          else{

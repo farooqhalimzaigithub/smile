@@ -41,7 +41,7 @@ button:"OK"
                       <tr>
                         <th scope="row">{{ $key+1 }}</th>
 
-                        <td><img style="width: 50%;" src="/public/images/{{$gellaries->image}}"></td> 
+                        <td><img style="width: 50px; height:50px " src="/public/images/{{$gellaries->image}}"></td> 
 
   
 
@@ -57,7 +57,7 @@ button:"OK"
                             <form method="post" action="{{route('gelleries.destroy',$gellaries->id)}}">
                               @method('delete')
                               @csrf
-                              <button style="border: none" type="submit" class=""><i class="fa fa-trash" aria-hidden="true"></i></button>
+                              <button style="border: none" type="submit" class=" "><i class="fa fa-trash text-danger" aria-hidden="true"></i></button>
                           </form>
 
                         </td>

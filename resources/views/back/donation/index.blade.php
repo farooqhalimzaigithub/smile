@@ -60,7 +60,7 @@
                             <form method="post" action="{{route('donations.destroy',$donation->id)}}">
                               @method('delete')
                               @csrf
-                             <button style="border: none" type="submit" class=""><i class="fa fa-trash" aria-hidden="true"></i></button> 
+                             <button style="border: none" type="submit" class=""><i class="fa fa-trash text-danger" aria-hidden="true"></i></button> 
                           </form>
                            
       

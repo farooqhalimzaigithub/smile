@@ -47,7 +47,7 @@ button:"OK"
                       <tr>
                         <th scope="row">{{ $key+1 }}</th>
                         <td>{{ $events->title }}</td>
-                        <td><img style="width: 50%;" src="/public/images/{{$events->image}}"></td> 
+                        <td><img style="width: 50px; height: 50px;" src="/public/images/{{$events->image}}"></td> 
 
                         <td>{{ $events->description }}</td>
                         <td>{{ $events->raise_price }}</td>
@@ -74,7 +74,7 @@ button:"OK"
                             <form method="post" action="{{route('events.destroy',$events->id)}}">
                               @method('delete')
                               @csrf
-                              <button style="border: none" type="submit" class=""><i class="fa fa-trash" aria-hidden="true"></i></button>
+                              <button style="border: none" type="submit" class=""><i class="fa fa-trash text-danger" aria-hidden="true"></i></button>
                           </form>
 
                         </td>
