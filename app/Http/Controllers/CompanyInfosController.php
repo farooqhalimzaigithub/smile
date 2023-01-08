@@ -60,7 +60,7 @@ class CompanyInfosController extends Controller
 
        ]))
 
-         return redirect()->back()->with('status','Successfully Submitted');
+         return redirect()->back()->with('company_success','Successfully Submitted');
         }
          else{
              return redirect()->back()->with('status','Please  login First !');
@@ -79,7 +79,7 @@ class CompanyInfosController extends Controller
         $companies=Company_infos::find($id);
         if(!is_null($companies)){
             $companies->delete();
-            return redirect()->back()->with('successer','Record delete successfully');
+            return redirect()->back()->with('company_delete','Record delete successfully');
         }
         return redirect()->back()->with('failer','Something went wrong');
     
@@ -115,7 +115,7 @@ class CompanyInfosController extends Controller
         $result=$company->save();
     
         if($result){
-            return redirect('company')->with('update','Data has been updated successfully');
+            return redirect('company')->with('company_edit','Data has been updated successfully');
     
         }
         else{

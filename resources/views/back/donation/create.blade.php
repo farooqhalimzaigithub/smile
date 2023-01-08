@@ -1,6 +1,15 @@
 @extends('back.layouts.master')
 @section('content')
 
+
+@if(Session::has('donation_success'))
+<script>
+swal("Congratulation!","{!! Session::get('donation_success') !!}","success",{
+button:"OK"
+});
+</script>
+@endif
+
 <div class="row justify-content-center">
             <div  class="col-md-12">
              <div  class="card">
@@ -146,3 +155,4 @@
               </div>
               </div>
 @endsection
+

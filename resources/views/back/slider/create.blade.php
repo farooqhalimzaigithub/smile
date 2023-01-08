@@ -1,6 +1,13 @@
 @extends('back.layouts.master')
 @section('content')
 
+@if(Session::has('slider_success'))
+<script>
+swal("","{!! Session::get('slider_success') !!}","success",{
+button:"OK"
+});
+</script>
+@endif
 
 <div class="container">
     <div class="row">

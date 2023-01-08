@@ -2,6 +2,9 @@
 @section('content')
       <!-- ============================================================== -->
 
+
+
+
       <div class="container mb-2">
         <div class="row">
           <div class="col-md-12">
@@ -73,7 +76,4 @@
             </div>
           </div>
      
- @stop
-    
-  </body>
-</html>
+ @endsection

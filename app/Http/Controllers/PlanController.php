@@ -56,9 +56,9 @@ class PlanController extends Controller
          'description' => $description ,
 
      ]))
-             return back()->withSuccess('Record saved successfully!');
+             return back()->with('plan_success','Record saved successfully!');
          else
-            return back()->withError('Record does not saved!'); 
+            return back()->withError('plan_fail','Record does not saved!'); 
 
     }
 
@@ -107,7 +107,7 @@ class PlanController extends Controller
         $plan->delete();
 
         return redirect()->route('plans.index')
-             ->withSuccess(__('Record delete successfully.'));
+             ->with('plan_delete','Record delete successfully.');
     }
 
     public function validate_mage(Request $request)

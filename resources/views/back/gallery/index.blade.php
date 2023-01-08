@@ -1,5 +1,13 @@
 @extends('back.layouts.master')
 @section('content')
+
+@if(Session::has('gallery_delete'))
+<script>
+swal("","{!! Session::get('gallery_delete') !!}","success",{
+button:"OK"
+});
+</script>
+@endif
       <!-- ============================================================== -->
 
       <div class="container mb-2">

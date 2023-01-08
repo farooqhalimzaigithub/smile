@@ -55,9 +55,9 @@ class GellaryController extends Controller
        'image' => $filename ,
 
    ]))
-           return back()->withSuccess('Record saved successfully!');
+           return back()->with('gallery_success','Record saved successfully!');
        else
-          return back()->withError('Record does not saved!'); 
+          return back()->with('gallery_fail','Record does not saved!'); 
     }
 
     /**
@@ -100,12 +100,14 @@ class GellaryController extends Controller
      * @param  \App\Gellary  $gellary
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Gellary $gellary)
+    public function destroy($id)
     {
-        $gellary->delete();
-// dd($gellary);
-        return redirect()->route('gelleries.index')
-             ->withSuccess(__('Record delete successfully.'));
+        $gellery=Gellary::find($id);
+        if(!is_null($gellery)){
+            $gellery->delete();
+            return redirect()->back()->with('gallery_delete','Record delete successfully');
+        }
+        return redirect()->back()->with('failer','Something went wrong');
     }
 
     public function validate_mage(Request $request)

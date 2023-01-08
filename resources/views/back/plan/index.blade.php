@@ -1,6 +1,18 @@
 @extends('back.layouts.master')
 @section('content')
+
+@if(Session::has('plan_delete'))
+<script>
+swal("","{!! Session::get('plan_delete') !!}","success",{
+button:"OK"
+});
+</script>
+@endif
+
       <!-- ============================================================== -->
+
+
+      
       <div class="container mb-2">
         <div class="row">
           <div class="col-md-12">
@@ -79,5 +91,4 @@
      
 @endsection
     
-  </body>
-</html>
+

@@ -1,5 +1,15 @@
 @extends('back.layouts.master')
 @section('content')
+
+
+@if(Session::has('event_delete'))
+<script>
+swal("","{!! Session::get('event_delete') !!}","success",{
+button:"OK"
+});
+</script>
+@endif
+
       <!-- ============================================================== -->
 
       <div class="container mb-2">

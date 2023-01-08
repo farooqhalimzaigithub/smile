@@ -47,8 +47,9 @@ Route::get('/',[Frontcontroller::class,'app']);
 Route::resource('donations', 'DonationController');
 Route::get('approved','DonationController@approve')->name('approved');
 Route::get('approved/{id}','DonationController@approve_result');
-
 Route::post('approved_result','DonationController@approved')->name('approved');
+
+
 
 Route::get('unapprove','DonationController@unapprove')->name('unapprove');
 Route::get('unapproved/{id}','DonationController@unapprove_result');

@@ -51,7 +51,7 @@ class AboutController extends Controller
 
        ]))
 
-         return redirect()->back()->with('status','Successfully Submitted');
+         return redirect()->back()->with('about_success','Successfully Submitted');
         }
          else{
              return redirect()->back()->with('status','Please  login First !');
@@ -69,7 +69,7 @@ class AboutController extends Controller
         $abouts=Abouts::find($id);
         if(!is_null($abouts)){
             $abouts->delete();
-            return redirect()->back()->with('successer','Record delete successfully');
+            return redirect()->back()->with('about_delete','Record delete successfully');
         }
         return redirect()->back()->with('failer','Something went wrong');
     
@@ -105,7 +105,7 @@ class AboutController extends Controller
         $result=$abouts->save();
     
         if($result){
-            return redirect('about/show')->with('update','Data has been updated successfully');
+            return redirect('about/show')->with('about_edit','Data has been updated successfully');
     
         }
         else{

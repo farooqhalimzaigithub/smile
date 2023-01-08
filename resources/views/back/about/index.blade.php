@@ -1,5 +1,22 @@
 @extends('back.layouts.master')
 @section('content')
+
+@if(Session::has('about_delete'))
+<script>
+swal("","{!! Session::get('about_delete') !!}","success",{
+button:"OK"
+});
+</script>
+@endif
+
+@if(Session::has('about_edit'))
+<script>
+swal("","{!! Session::get('about_edit') !!}","success",{
+button:"OK"
+});
+</script>
+@endif
+
       <!-- ============================================================== -->
       @if(Session::has('successer'))
       <p class="alert alert-danger">{{ Session::get('successer') }}</p>

@@ -1,12 +1,21 @@
 @extends('back.layouts.master')
 @section('content')
       <!-- ============================================================== -->
-      @if(Session::has('successer'))
-      <p class="alert alert-info">{{ Session::get('successer') }}</p>
+      @if(Session::has('company_delete'))
+      <script>
+      swal("","{!! Session::get('company_delete') !!}","success",{
+      button:"OK"
+      });
+      </script>
       @endif
 
-      @if(Session::has('update'))
-<p class="alert alert-info">{{ Session::get('update') }}</p>
+      
+@if(Session::has('company_edit'))
+<script>
+swal("","{!! Session::get('company_edit') !!}","success",{
+button:"OK"
+});
+</script>
 @endif
 
       <div class="container mb-2">

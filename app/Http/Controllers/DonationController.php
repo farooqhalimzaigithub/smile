@@ -132,13 +132,19 @@ class DonationController extends Controller
      * @param  \App\Donation  $donation
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Donation $donation)
+    public function destroy($id)
     {
-        $donation->delete();
-
-        return redirect()->back()
-             ->withSuccess(__('Record delete successfully.'));
+        $donation=Donation::find($id);
+        if(!is_null($donation)){
+            $donation->delete();
+            return redirect()->back()->with('donation_delete','Record delete successfully');
+        }
+        return redirect()->back()->with('failer','Something went wrong');
     }
+
+
+
+    
 
     public function validate_mage(Request $request)
     {
@@ -266,11 +272,11 @@ class DonationController extends Controller
     
        ]))
 
-            return redirect()->back()->with('status','Successfully Submitted');
+            return redirect()->back()->with('donation_success','Successfully Submitted');
         }
         else{
 
-         return redirect()->back()->with('status','Please  login First !');
+         return redirect()->back()->with('donation_fail','Please  login First !');
         }
 
     }

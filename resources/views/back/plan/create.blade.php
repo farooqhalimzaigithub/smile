@@ -1,6 +1,14 @@
 @extends('back.layouts.master')
 @section('content')
 
+@if(Session::has('plan_success'))
+<script>
+swal("","{!! Session::get('plan_success') !!}","success",{
+button:"OK"
+});
+</script>
+@endif
+
   <div class="row">
             <div  class="col-md-12">
              <div  class="card">

@@ -57,9 +57,9 @@ class SliderController extends Controller
          'description' => $description ,
 
      ]))
-             return back()->withSuccess('Record saved successfully!');
+             return back()->with('slider_success','Record saved successfully!');
          else
-            return back()->withError('Record does not saved!'); 
+            return back()->with('fail','Record does not saved!'); 
 
     
     }
@@ -109,7 +109,7 @@ class SliderController extends Controller
         $slider->delete();
 
         return redirect()->route('sliders.index')
-             ->withSuccess(__('Record delete successfully.'));
+             ->with('slider_delete','Record delete successfully.');
     }
 
     public function validate_mage(Request $request)

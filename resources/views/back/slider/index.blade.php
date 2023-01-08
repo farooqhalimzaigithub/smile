@@ -2,6 +2,13 @@
 @section('content')
       <!-- ============================================================== -->
 
+      @if(Session::has('slider_delete'))
+      <script>
+      swal("","{!! Session::get('slider_delete') !!}","success",{
+      button:"OK"
+      });
+      </script>
+      @endif
 
       <div class="container mb-2">
         <div class="row">
@@ -36,9 +43,10 @@
                         
                     
                       <tr>
-                        <th scope="row">{{ $key+1 }}</th>
+                        <td >{{ $key+1 }}</td>
                         <td>{{ $sliders->title }}</td>
-                        <td>{{ $sliders->image }}</td>
+                        <td><img style="width: 10%;" src="/public/images/{{$sliders->image}}"></td> 
+
                         <td>{{ $sliders->description }}</td>
                         <td>
                          <!--  @if ($sliders->status=='0')

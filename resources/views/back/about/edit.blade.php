@@ -2,9 +2,8 @@
 @section('content')
 
 
-@if(Session::has('status'))
-<p class="alert alert-info">{{ Session::get('status') }}</p>
-@endif
+
+
 
 
 

@@ -1,5 +1,13 @@
 @extends('back.layouts.master')
 @section('content')
+
+@if(Session::has('donation_delete'))
+<script>
+swal("","{!! Session::get('donation_delete') !!}","success",{
+button:"OK"
+});
+</script>
+@endif
       <!-- ============================================================== -->
       
       <div  class="container mb-2">
@@ -95,7 +103,7 @@
                           
                             {{-- <a href="" class=""><i class="fas fa-edit"></i></a> --}}
                               
-                            
+                            {{-- <a href="{{route('approved_delete',$searches->id)}}" class=""><i class="fas fa-trash"></i></a> --}}
       
                             <form method="post" action="{{route('donations.destroy',$searches->id)}}">
                               @method('delete')
@@ -116,7 +124,4 @@
             </div>
           </div>
      
- @stop
-    
-  </body>
-</html>
+ @endsection

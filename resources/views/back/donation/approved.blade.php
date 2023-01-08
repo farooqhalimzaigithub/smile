@@ -1,6 +1,13 @@
 @extends('back.layouts.master')
 @section('content')
 
+@if(Session::has('donation_delete'))
+<script>
+swal("","{!! Session::get('donation_delete') !!}","success",{
+button:"OK"
+});
+</script>
+@endif
           <!-- ============================================================== -->
           
           <div  class="container mb-2">

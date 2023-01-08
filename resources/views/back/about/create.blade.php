@@ -2,9 +2,15 @@
 @section('content')
 
 
-@if(Session::has('status'))
-<p class="alert alert-info">{{ Session::get('status') }}</p>
+@if(Session::has('about_success'))
+<script>
+swal("","{!! Session::get('about_success') !!}","success",{
+button:"OK"
+});
+</script>
 @endif
+
+
 
 
 

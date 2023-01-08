@@ -63,7 +63,7 @@ class EventController extends Controller
 
    ]))
    
-           return back()->withSuccess('Record saved successfully!');
+           return back()->with('event_success','Record saved successfully!');
        else
           return back()->withError('Record does not saved!'); 
     }
@@ -113,7 +113,7 @@ class EventController extends Controller
         $event->delete();
 
         return redirect()->route('events.index')
-             ->withSuccess(__('Record delete successfully.'));
+             ->with('event_delete','Record delete successfully.');
     }
 
     public function validate_mage(Request $request)
